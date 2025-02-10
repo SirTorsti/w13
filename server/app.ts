@@ -17,16 +17,14 @@ const db: Connection = mongoose.connection
 
 db.on('error', console.error.bind(console, "MongoDB connection error"))
 
-db.createCollection("Books", {
-
-})
-
-const corsOptions: CorsOptions = {
-    origin: "http://localhost:5173",
-    optionsSuccessStatus: 200
+if (process.env.NODE_ENV === 'development') {
+    const corsOptions: CorsOptions = {
+        origin: "http://localhost:3000",
+        optionsSuccessStatus: 200
+    }
+    app.use(cors(corsOptions))
 }
 
-app.use(cors(corsOptions))
 app.use(express.json())
 app.use(morgan("dev"))
 app.use(express.urlencoded({extended: false}))
