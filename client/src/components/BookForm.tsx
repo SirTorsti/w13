@@ -48,6 +48,10 @@ const [book, setBook] = useState({
             <label htmlFor="author">Author: </label>
             <input type="text" id="author" name='author' value={book.author} onChange={handleChange} required />
         </div>
+        <div>
+            <label htmlFor="pages">Pages: </label>
+            <input type="number" id="pages" name="pages" value={book.pages} onChange={handleChange} required />
+        </div>
         <button type="submit">Submit</button>
     </form>
   )
