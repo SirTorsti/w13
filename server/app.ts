@@ -4,6 +4,7 @@ import morgan from "morgan"
 import mongoose, {Connection} from 'mongoose'
 import dotenv from 'dotenv'
 import cors, {CorsOptions} from 'cors'
+import router from './routes/index'
 
 dotenv.config()
 
@@ -35,7 +36,7 @@ app.use(morgan("dev"))
 app.use(express.urlencoded({extended: false}))
 
 app.use(express.static(path.join(__dirname, "../public")))
-//app.use("/", router)
+app.use("/", router)
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
