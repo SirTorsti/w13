@@ -10,7 +10,6 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const index_1 = __importDefault(require("./routes/index"));
-const Book_1 = require("./models/Book");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = 1234;
@@ -19,14 +18,6 @@ mongoose_1.default.connect(mongoDB);
 mongoose_1.default.Promise = Promise;
 const db = mongoose_1.default.connection;
 db.on('error', console.error.bind(console, "MongoDB connection error"));
-db.once('open', async () => {
-    try {
-        await Book_1.Book.createCollection();
-    }
-    catch (error) {
-        console.error(`Error while creating collection: ${error.message}`);
-    }
-});
 if (process.env.NODE_ENV === 'development') {
     const corsOptions = {
         origin: "http://localhost:3000",

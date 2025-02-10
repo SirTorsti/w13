@@ -20,6 +20,7 @@ router.get('/api/book/:name', async (req, res) => {
         if (!book) {
             res.status(404).json({ message: 'Book not found' });
         }
+        res.status(200).json(book);
     }
     catch (error) {
         console.error(`Error while fetching book: ${error.message}`);

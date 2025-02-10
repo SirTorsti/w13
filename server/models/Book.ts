@@ -13,4 +13,5 @@ const bookSchema: Schema = new Schema({
     pages: {type: Number, required: true}
 })
 
-export const Book = model('Book', bookSchema, 'books')
+const Book = mongoose.model<IBook>('Book', bookSchema)
+export { Book, IBook}
