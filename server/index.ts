@@ -10,7 +10,7 @@ dotenv.config()
 const app: Express = express()
 const port: number = 3000
 
-const mongoDB: string = "mongodb://localhost:27017/test"
+const mongoDB: string = "mongodb://127.0.0.1:27017/testdb"
 mongoose.connect(mongoDB)
 mongoose.Promise = Promise
 const db: Connection = mongoose.connection
