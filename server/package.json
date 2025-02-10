@@ -1,10 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc-watch --onSuccess \"nodemon dist/index.js\"",
+    "dev": "tsc-watch --onSuccess \"nodemon dist/app.js\"",
     "start": "tsc && node dist/app.js"
   },
   "author": "",
