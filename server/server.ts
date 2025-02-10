@@ -8,7 +8,7 @@ import cors, {CorsOptions} from 'cors'
 dotenv.config()
 
 const app: Express = express()
-const port: number = 1234
+const port: number = 3000
 
 const mongoDB: string = "mongodb://localhost:27017/test"
 mongoose.connect(mongoDB)
