@@ -52,7 +52,7 @@ const [book, setBook] = useState({
             <label htmlFor="pages">Pages: </label>
             <input type="number" id="pages" name="pages" value={book.pages} onChange={handleChange} required />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
     </form>
   )
 }
