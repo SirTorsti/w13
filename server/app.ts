@@ -5,6 +5,7 @@ import mongoose, {Connection} from 'mongoose'
 import dotenv from 'dotenv'
 import cors, {CorsOptions} from 'cors'
 import router from './routes/index'
+import { Book } from './models/Book'
 
 dotenv.config()
 
@@ -17,6 +18,13 @@ mongoose.Promise = Promise
 const db: Connection = mongoose.connection
 
 db.on('error', console.error.bind(console, "MongoDB connection error"))
+db.once('open', async () => {
+    try {
+        await Book.createCollection()
+    } catch (error: any) {
+        console.error(`Error while creating collection: ${error.message}`)
+    }
+})
 
 if (process.env.NODE_ENV === 'development') {
     const corsOptions: CorsOptions = {
